@@ -1,0 +1,755 @@
+<!doctype html>
+<html lang="zxx">
+  <head>
+    <!-- Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1"
+    />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="camco" />
+    <!-- Page Title -->
+    <title>CAMCO CONVERGYS - Contact</title>
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+    <!-- Google Fonts Css-->
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Css -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <!-- SlickNav Css -->
+    <link href="css/slicknav.min.css" rel="stylesheet" />
+    <!-- Swiper Css -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+    <!-- Font Awesome Icon Css-->
+    <link href="css/all.min.css" rel="stylesheet" media="screen" />
+    <!-- Animated Css -->
+    <link href="css/animate.css" rel="stylesheet" />
+    <!-- Magnific Popup Core Css File -->
+    <link rel="stylesheet" href="css/magnific-popup.css" />
+    <!-- Mouse Cursor Css File -->
+    <link rel="stylesheet" href="css/mousecursor.css" />
+    <!-- Main Custom Css -->
+    <link href="css/custom.css" rel="stylesheet" media="screen" />
+    <style>
+      /* Notification Styles */
+      .notification {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        /* Changed from left to right */
+        max-width: 350px;
+        padding: 15px 20px;
+        border-radius: 5px;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 9999;
+        transform: translateX(400px);
+        /* Changed from -400px to 400px */
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .notification.show {
+        transform: translateX(0);
+      }
+
+      .notification.success {
+        background-color: #4caf50;
+      }
+
+      .notification.error {
+        background-color: #f44336;
+      }
+
+      .notification .close-btn {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+        margin-left: 15px;
+      }
+
+      /* Loading indicator */
+      .form-loading {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.7);
+        z-index: 10;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .form-loading.active {
+        display: flex;
+      }
+
+      .spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #3498db;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .recaptcha-error {
+        color: #f44336;
+        font-size: 14px;
+        margin-top: 5px;
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header Start -->
+    <header class="main-header">
+      <div class="header-sticky">
+        <nav class="navbar navbar-expand-lg">
+          <div class="container">
+            <!-- Logo Start -->
+            <a class="navbar-brand" href="index.html">
+              <img
+                src="images/logo.jpg"
+                alt="CAMCO CONVERGYS Logo"
+                style="height: 70px"
+              />
+            </a>
+            <!-- Logo End -->
+
+            <!-- Main Menu Start -->
+            <div class="collapse navbar-collapse main-menu">
+              <div class="nav-menu-wrapper">
+                <ul class="navbar-nav mr-auto" id="menu">
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="about.html">About Us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="services.html">Services</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact Us</a>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Header Btn Start -->
+              <div class="header-btn">
+                <a href="contact.html" class="btn-default">get started</a>
+              </div>
+              <!-- Header Btn End -->
+            </div>
+            <!-- Main Menu End -->
+            <div class="navbar-toggle"></div>
+          </div>
+        </nav>
+        <div class="responsive-menu"></div>
+      </div>
+    </header>
+
+    <!-- WhatsApp Floating Button -->
+    <a
+      href="https://wa.me/7070709682"
+      class="whatsapp-float"
+      target="_blank"
+      aria-label="Chat on WhatsApp"
+    >
+      <img src="images/WhatsApp_icon.webp" alt="WhatsApp" />
+    </a>
+
+    <style>
+      .whatsapp-float {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 99999;
+        background-color: #25d366;
+        border-radius: 50%;
+        padding: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+      }
+
+      .whatsapp-float:hover {
+        transform: scale(1.1);
+      }
+
+      .whatsapp-float img {
+        width: 40px;
+        height: 40px;
+        display: block;
+      }
+
+      @media (max-width: 768px) {
+        .whatsapp-float {
+          bottom: 15px;
+          right: 15px;
+        }
+
+        .whatsapp-float img {
+          width: 35px;
+          height: 35px;
+        }
+      }
+    </style>
+    <!-- Header End -->
+
+    <!-- Page Header Start -->
+    <div class="page-header parallaxie">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-12">
+            <!-- Page Header Box Start -->
+            <div class="page-header-box">
+              <h1 class="wow fadeInUp" data-cursor="-opaque">Contact Us</h1>
+              <nav class="wow fadeInUp" data-wow-delay="0.2s">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item">
+                    <a href="index.html">home</a> &gt contact us
+                  </li>
+                </ol>
+              </nav>
+            </div>
+            <!-- Page Header Box End -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- Page Contact Us Start -->
+    <div class="page-contact-us">
+      <div class="container">
+        <div class="row section-row">
+          <div class="col-lg-12">
+            <!-- Section Title Start -->
+            <div class="section-title">
+              <h3 class="wow fadeInUp">contact us</h3>
+              <h2
+                class="wow fadeInUp"
+                data-wow-delay="0.2s"
+                data-cursor="-opaque"
+              >
+                Have any questions? <span>we're here to help</span>
+              </h2>
+            </div>
+            <!-- Section Title End -->
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <!-- Page Contact Box Start -->
+            <div class="page-contact-box parallaxie">
+              <!-- Contact Info List Start -->
+              <div class="contact-info-list">
+                <!-- Contact Info Item Start -->
+                <div class="contact-info-item wow fadeInUp">
+                  <div class="icon-box">
+                    <img src="images/icon-phone-accent.svg" alt="" />
+                  </div>
+                  <div class="contact-info-content">
+                    <h3>Call Us</h3>
+                    <p><a href="tel:+917070709682">+91-7070709682</a></p>
+                  </div>
+                </div>
+                <!-- Contact Info Item End -->
+
+                <!-- Contact Info Item Start -->
+                <div
+                  class="contact-info-item wow fadeInUp"
+                  data-wow-delay="0.2s"
+                >
+                  <div class="icon-box">
+                    <img src="images/icon-mail-accent.svg" alt="" />
+                  </div>
+                  <div class="contact-info-content">
+                    <h3>Email Us</h3>
+                    <p>
+                      <a href="mailto:info@camcoconvergys.com"
+                        >info@camcoconvergys.com</a
+                      >
+                    </p>
+                  </div>
+                </div>
+                <!-- Contact Info Item End -->
+
+                <!-- Contact Info Item Start -->
+                <div
+                  class="contact-info-item wow fadeInUp"
+                  data-wow-delay="0.4s"
+                >
+                  <div class="icon-box">
+                    <img src="images/icon-location.svg" alt="" />
+                  </div>
+                  <div class="contact-info-content">
+                    <h3>Office Address</h3>
+                    <p>
+                      Plot No. 50, Pocket 7, Dwarka Sector 23b, New Delhi 110075
+                    </p>
+                  </div>
+                </div>
+                <!-- Contact Info Item End -->
+              </div>
+              <!-- Contact Info List End -->
+
+              <div class="contact-us-form">
+                <!-- Section Title Start -->
+                <div class="section-title dark-section wow fadeInUp">
+                  <h2 class="wow fadeInUp" data-cursor="-opaque">
+                    Send Us a Message
+                  </h2>
+                </div>
+                <!-- Section Title End -->
+
+                <!-- Notification Container -->
+                <div id="notification-container"></div>
+
+                <div class="member-contact-form contact-form">
+                  <form
+                    id="contactForm"
+                    method="POST"
+                    class="wow fadeInUp"
+                    data-wow-delay="0.2s"
+                  >
+                    <div class="form-loading" id="formLoading">
+                      <div class="spinner"></div>
+                    </div>
+                    <div class="row">
+                      <div class="form-group col-md-6 mb-4">
+                        <input
+                          type="text"
+                          name="fname"
+                          class="form-control"
+                          id="fname"
+                          placeholder="First Name"
+                          required
+                        />
+                        <div class="help-block with-errors"></div>
+                      </div>
+
+                      <div class="form-group col-md-6 mb-4">
+                        <input
+                          type="text"
+                          name="lname"
+                          class="form-control"
+                          id="lname"
+                          placeholder="Last Name"
+                          required
+                        />
+                        <div class="help-block with-errors"></div>
+                      </div>
+
+                      <div class="form-group col-md-6 mb-4">
+                        <input
+                          type="text"
+                          name="phone"
+                          class="form-control"
+                          id="phone"
+                          placeholder="Phone Number"
+                          required
+                        />
+                        <div class="help-block with-errors"></div>
+                      </div>
+
+                      <div class="form-group col-md-6 mb-4">
+                        <input
+                          type="email"
+                          name="email"
+                          class="form-control"
+                          id="email"
+                          placeholder="Email Address"
+                          required
+                        />
+                        <div class="help-block with-errors"></div>
+                      </div>
+
+                      <div class="form-group col-md-12 mb-5">
+                        <textarea
+                          name="message"
+                          class="form-control"
+                          id="message"
+                          rows="4"
+                          placeholder="Your Message"
+                        ></textarea>
+                        <div class="help-block with-errors"></div>
+                      </div>
+
+                      <div class="col-md-12">
+                        <div class="col-md-12 mb-4">
+                          <div
+                            class="g-recaptcha"
+                            data-sitekey="6LeW-YQrAAAAAHWMcMuxwng-9kFrTQbPfg0pnwmq"
+                          ></div>
+                          <div id="recaptcha-error" class="recaptcha-error">
+                            Please verify that you are not a robot.
+                          </div>
+                        </div>
+                        <button
+                          type="submit"
+                          class="btn-default btn-highlighted"
+                        >
+                          <span>Submit</span>
+                        </button>
+                        <div id="msgSubmit" class="h3 hidden"></div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!-- Page Contact Box End -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page Contact Us End -->
+
+    <!-- Google Map Section Start -->
+    <div class="google-map">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <!-- Google Map IFrame Start -->
+            <div class="google-map-iframe">
+              <iframe
+                src="https://www.google.com/maps?q=H26R%2B864%2C%20Sector%2023b%2C%20Dwarka%2C%20Delhi%2C%20110075&output=embed"
+                width="100%"
+                height="450"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+            <!-- Google Map IFrame End -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Google Map Section End -->
+
+    <!-- Main Footer Section Start -->
+    <footer class="main-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <!-- Footer Newsletter Form Start -->
+            <div class="footer-links footer-newsletter-form">
+              <h3>Subscribe our newsletter:</h3>
+              <p>
+                Get updates on our latest IT solutions and office automation
+                services.
+              </p>
+              <form id="newsletterForm" action="contact.html" method="POST">
+                <div class="form-group">
+                  <input
+                    type="email"
+                    name="email"
+                    class="form-control"
+                    id="mail"
+                    placeholder="Enter Your Email"
+                  />
+                  <button type="submit" class="newsletter-btn">
+                    <i class="fa-regular fa-paper-plane"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+            <!-- Footer Newsletter Form End -->
+          </div>
+
+          <div class="col-lg-2 col-md-3 col-6">
+            <!-- Footer Links Start -->
+            <div class="footer-links footer-quick-links">
+              <h3>Quick link</h3>
+              <ul>
+                <li><a href="index.html">home</a></li>
+                <li><a href="about.html">about us</a></li>
+                <li><a href="services.html">services</a></li>
+                <li><a href="contact.html">contact us</a></li>
+              </ul>
+            </div>
+            <!-- Footer Links End -->
+          </div>
+
+          <div class="col-lg-2 col-md-3 col-6">
+            <!-- Footer Links Start -->
+            <div class="footer-links">
+              <h3>Services</h3>
+              <ul>
+                <li><a href="">IT Infrastructure</a></li>
+                <li><a href="">Office Automation</a></li>
+                <li><a href="">Maintenance</a></li>
+                <li><a href="">Security Solutions</a></li>
+              </ul>
+            </div>
+            <!-- Footer Links End -->
+          </div>
+
+          <div class="col-lg-2 col-md-3 col-6">
+            <!-- Footer Links Start -->
+            <div class="footer-links">
+              <h3>Contact</h3>
+              <ul>
+                <li><a href="tel:+917070709682">+91 7070709682</a></li>
+                <li>
+                  <a href="mailto:info@camcoconvergys.com"
+                    >info@camcoconvergys.com</a
+                  >
+                </li>
+                <li>
+                  Plot No. 50, Pocket 7, Dwarka Sector 23b, New Delhi 110075
+                </li>
+              </ul>
+            </div>
+            <!-- Footer Links End -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Copyright Start -->
+      <div class="footer-copyright">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <!-- Footer Copyright Text Start -->
+              <div class="footer-copyright-text">
+                <p>
+                  Copyright © 2025 CAMCO CONVERGYS PVT. LTD. All Rights
+                  Reserved.
+                </p>
+              </div>
+              <!-- Footer Copyright Text End -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer Copyright End -->
+    </footer>
+    <!-- Main Footer Section End -->
+
+    <!-- for lazy loading -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const lazyElements = document.querySelectorAll(
+          "img, iframe, video source",
+        );
+
+        // Step 1: Move src to data-src if not already set
+        lazyElements.forEach((el) => {
+          if (!el.dataset.src && el.src) {
+            el.dataset.src = el.src;
+            el.removeAttribute("src"); // prevent immediate loading
+          }
+        });
+
+        // Step 2: Lazy load with IntersectionObserver
+        if ("IntersectionObserver" in window) {
+          let observer = new IntersectionObserver(function (entries, observer) {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const el = entry.target;
+
+                if (el.dataset.src) {
+                  el.src = el.dataset.src;
+                  // console.log("Lazy loading:", el.dataset.src); //only for test
+                }
+
+                if (el.tagName === "SOURCE") {
+                  const video = el.closest("video");
+                  if (video) video.load();
+                }
+
+                observer.unobserve(el);
+              }
+            });
+          });
+
+          lazyElements.forEach((el) => {
+            if (el.dataset.src) observer.observe(el);
+          });
+        } else {
+          // Fallback for older browsers
+          lazyElements.forEach((el) => {
+            if (el.dataset.src) {
+              el.src = el.dataset.src;
+              if (el.tagName === "SOURCE") {
+                const video = el.closest("video");
+                if (video) video.load();
+              }
+            }
+          });
+        }
+      });
+    </script>
+
+    <!-- Jquery Library File -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap js file -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Validator js file -->
+    <script src="js/validator.min.js"></script>
+    <!-- SlickNav js file -->
+    <script src="js/jquery.slicknav.js"></script>
+    <!-- Swiper js file -->
+    <script src="js/swiper-bundle.min.js"></script>
+    <!-- Counter js file -->
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <!-- Magnific js file -->
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <!-- SmoothScroll -->
+    <script src="js/SmoothScroll.js"></script>
+    <!-- Parallax js -->
+    <script src="js/parallaxie.js"></script>
+    <!-- MagicCursor js file -->
+    <script src="js/gsap.min.js"></script>
+    <script src="js/magiccursor.js"></script>
+    <!-- Text Effect js file -->
+    <script src="js/SplitText.js"></script>
+    <script src="js/ScrollTrigger.min.js"></script>
+    <!-- YTPlayer js File -->
+    <script src="js/jquery.mb.YTPlayer.min.js"></script>
+    <!-- Wow js file -->
+    <script src="js/wow.min.js"></script>
+    <!-- Main Custom js file -->
+    <script src="js/function.js"></script>
+
+    <!-- this is for gogole capcha -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <script>
+      $(document).ready(function () {
+        // Handle form submission with AJAX
+        $("#contactForm").on("submit", function (e) {
+          e.preventDefault();
+
+          // Reset error message
+          $("#recaptcha-error").hide();
+
+          // Check if reCAPTCHA is verified
+          var recaptchaResponse = grecaptcha.getResponse();
+          if (recaptchaResponse.length === 0) {
+            $("#recaptcha-error").show();
+            return false;
+          }
+
+          // Show loading indicator
+          $("#formLoading").addClass("active");
+
+          // Serialize form data
+          var formData = $(this).serializeArray();
+          formData.push({
+            name: "g-recaptcha-response",
+            value: recaptchaResponse,
+          });
+
+          $.ajax({
+            type: "POST",
+            url: "send-mail",
+            data: $.param(formData),
+            dataType: "json",
+            success: function (response) {
+              $("#formLoading").removeClass("active");
+              if (response.status === "success") {
+                showNotification(
+                  "Your message has been sent successfully!",
+                  "success",
+                );
+                $("#contactForm")[0].reset();
+                grecaptcha.reset();
+              } else {
+                showNotification(
+                  response.message ||
+                    "There was an error sending your message.",
+                  "error",
+                );
+                grecaptcha.reset();
+              }
+            },
+            error: function (xhr, status, error) {
+              $("#formLoading").removeClass("active");
+              showNotification(
+                "There was an error sending your message. Please try again.",
+                "error",
+              );
+              grecaptcha.reset();
+              console.error(error);
+            },
+          });
+        });
+
+        // Function to show notification
+        function showNotification(message, type) {
+          // Create notification element
+          var notification = $(
+            '<div class="notification ' +
+              type +
+              '">' +
+              "<span>" +
+              message +
+              "</span>" +
+              '<button class="close-btn">&times;</button>' +
+              "</div>",
+          );
+
+          // Append to container
+          $("#notification-container").append(notification);
+
+          // Show notification
+          setTimeout(function () {
+            notification.addClass("show");
+          }, 100);
+
+          // Auto hide after 5 seconds
+          var timeout = setTimeout(function () {
+            hideNotification(notification);
+          }, 5000);
+
+          // Close button click handler
+          notification.find(".close-btn").click(function () {
+            clearTimeout(timeout);
+            hideNotification(notification);
+          });
+        }
+
+        // Function to hide notification
+        function hideNotification(notification) {
+          notification.removeClass("show");
+          setTimeout(function () {
+            notification.remove();
+          }, 300);
+        }
+      });
+    </script>
+  </body>
+</html>
