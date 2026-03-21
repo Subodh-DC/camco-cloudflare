@@ -960,60 +960,6 @@
     </footer>
     <!-- Main Footer Section End -->
 
-    <!-- for lazy loading -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const lazyElements = document.querySelectorAll(
-          "img, iframe, video source",
-        );
-
-        // Step 1: Move src to data-src if not already set
-        lazyElements.forEach((el) => {
-          if (!el.dataset.src && el.src) {
-            el.dataset.src = el.src;
-            el.removeAttribute("src"); // prevent immediate loading
-          }
-        });
-
-        // Step 2: Lazy load with IntersectionObserver
-        if ("IntersectionObserver" in window) {
-          let observer = new IntersectionObserver(function (entries, observer) {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                const el = entry.target;
-
-                if (el.dataset.src) {
-                  el.src = el.dataset.src;
-                  // console.log("Lazy loading:", el.dataset.src); //only for test
-                }
-
-                if (el.tagName === "SOURCE") {
-                  const video = el.closest("video");
-                  if (video) video.load();
-                }
-
-                observer.unobserve(el);
-              }
-            });
-          });
-
-          lazyElements.forEach((el) => {
-            if (el.dataset.src) observer.observe(el);
-          });
-        } else {
-          // Fallback for older browsers
-          lazyElements.forEach((el) => {
-            if (el.dataset.src) {
-              el.src = el.dataset.src;
-              if (el.tagName === "SOURCE") {
-                const video = el.closest("video");
-                if (video) video.load();
-              }
-            }
-          });
-        }
-      });
-    </script>
 
     <!-- Jquery Library File -->
     <script src="js/jquery-3.7.1.min.js"></script>
