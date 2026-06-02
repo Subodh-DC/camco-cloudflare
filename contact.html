@@ -405,10 +405,8 @@
 
                       <div class="col-md-12">
                         <div class="col-md-12 mb-4">
-                          <div
-                            class="g-recaptcha"
-                            data-sitekey="6LeW-YQrAAAAAHWMcMuxwng-9kFrTQbPfg0pnwmq"
-                          ></div>
+                          <div class="h-captcha" data-captcha="true"></div>
+
                           <div id="recaptcha-error" class="recaptcha-error">
                             Please verify that you are not a robot.
                           </div>
@@ -549,7 +547,13 @@
                 </p>
                 <p class="developer-credit">
                   Designed & Developed by
-                  <a href="https://veloya.in" target="_blank" style="color: whitesmoke;"> Veloya </a>
+                  <a
+                    href="https://veloya.in"
+                    target="_blank"
+                    style="color: whitesmoke"
+                  >
+                    Veloya
+                  </a>
                 </p>
               </div>
               <!-- Footer Copyright Text End -->
@@ -560,8 +564,6 @@
       <!-- Footer Copyright End -->
     </footer>
     <!-- Main Footer Section End -->
-
-
 
     <!-- Jquery Library File -->
     <script src="js/jquery-3.7.1.min.js"></script>
@@ -595,73 +597,85 @@
     <!-- Main Custom js file -->
     <script src="js/function.js"></script>
 
-    <!-- this is for gogole capcha -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- this is for capcha -->
+    <script src="https://web3forms.com/client/script.js" async defer></script>
 
     <script>
       $(document).ready(function () {
-        // Handle form submission with AJAX
-        $("#contactForm").on("submit", function (e) {
+        // Handle form submission
+        $("#contactForm").on("submit", async function (e) {
           e.preventDefault();
 
-          // Reset error message
+          // Hide previous error
           $("#recaptcha-error").hide();
 
-          // Check if reCAPTCHA is verified
-          var recaptchaResponse = grecaptcha.getResponse();
-          if (recaptchaResponse.length === 0) {
+          // Check hCaptcha
+          const hCaptcha = document.querySelector(
+            'textarea[name="h-captcha-response"]',
+          ).value;
+
+          if (!hCaptcha) {
             $("#recaptcha-error").show();
+
             return false;
           }
 
-          // Show loading indicator
+          // Show loading
           $("#formLoading").addClass("active");
 
-          // Serialize form data
-          var formData = $(this).serializeArray();
-          formData.push({
-            name: "g-recaptcha-response",
-            value: recaptchaResponse,
-          });
+          // Create form data
+          const formData = new FormData(this);
 
-          $.ajax({
-            type: "POST",
-            url: "send-mail",
-            data: $.param(formData),
-            dataType: "json",
-            success: function (response) {
-              $("#formLoading").removeClass("active");
-              if (response.status === "success") {
-                showNotification(
-                  "Your message has been sent successfully!",
-                  "success",
-                );
-                $("#contactForm")[0].reset();
-                grecaptcha.reset();
-              } else {
-                showNotification(
-                  response.message ||
-                    "There was an error sending your message.",
-                  "error",
-                );
-                grecaptcha.reset();
-              }
-            },
-            error: function (xhr, status, error) {
-              $("#formLoading").removeClass("active");
+          // Web3Forms Access Key
+          formData.append("access_key", "4501f4c1-4539-4fc0-8011-54287157ea6c");
+
+          // Optional Settings
+          formData.append("subject", "New Contact Form Submission");
+
+          formData.append("from_name", "CAMCO Website");
+
+          try {
+            // Send form
+            const response = await fetch("https://api.web3forms.com/submit", {
+              method: "POST",
+              body: formData,
+            });
+
+            const result = await response.json();
+
+            // Hide loading
+            $("#formLoading").removeClass("active");
+
+            // Success
+            if (result.success) {
               showNotification(
-                "There was an error sending your message. Please try again.",
+                "Your message has been sent successfully!",
+                "success",
+              );
+
+              // Reset form
+              $("#contactForm")[0].reset();
+            } else {
+              showNotification(
+                result.message || "There was an error sending your message.",
                 "error",
               );
-              grecaptcha.reset();
-              console.error(error);
-            },
-          });
+            }
+          } catch (error) {
+            // Hide loading
+            $("#formLoading").removeClass("active");
+
+            showNotification(
+              "There was an error sending your message. Please try again.",
+              "error",
+            );
+
+            console.error(error);
+          }
         });
 
-        // Function to show notification
+        // Show notification
         function showNotification(message, type) {
-          // Create notification element
           var notification = $(
             '<div class="notification ' +
               type +
@@ -673,34 +687,37 @@
               "</div>",
           );
 
-          // Append to container
+          // Append notification
           $("#notification-container").append(notification);
 
-          // Show notification
+          // Animate
           setTimeout(function () {
             notification.addClass("show");
           }, 100);
 
-          // Auto hide after 5 seconds
+          // Auto hide
           var timeout = setTimeout(function () {
             hideNotification(notification);
           }, 5000);
 
-          // Close button click handler
+          // Close button
           notification.find(".close-btn").click(function () {
             clearTimeout(timeout);
+
             hideNotification(notification);
           });
         }
 
-        // Function to hide notification
+        // Hide notification
         function hideNotification(notification) {
           notification.removeClass("show");
+
           setTimeout(function () {
             notification.remove();
           }, 300);
         }
       });
     </script>
+
   </body>
 </html>
